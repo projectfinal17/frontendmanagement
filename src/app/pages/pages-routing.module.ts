@@ -21,6 +21,10 @@ const routes: Routes = [{
     loadChildren: './demo-management/demo-management.module#DemoManagementModule'
   },
   {
+    path: 'product-management',
+    loadChildren: './product-management/product-management.module#ProductManagementModule'
+  },
+  {
     path: 'sales',
     loadChildren: './sales-management/sales-management.module#SalesManagementModule',
   },

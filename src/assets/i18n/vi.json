@@ -80,5 +80,12 @@
     "payment_cash": "Tiền mặt",
     "payment_card": "Tiền thẻ",
     "payment_bank": "Chuyển khoản",
-    "type" : "Loại"
+    "type" : "Loại",
+
+    "product_management":"Quản lý sản phẩm",
+    "product_categories":"Danh mục sản phẩm",
+    "add_product_categories":"Thêm Danh Mục",
+    "edit_product_categories":"Sửa Danh Mục",
+    "name_productCategories":"Tên danh mục",
+    "productCate_search_placeholder":"Tên"
 }

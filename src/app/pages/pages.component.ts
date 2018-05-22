@@ -20,7 +20,8 @@ export class PagesComponent implements OnInit {
   ) {
     let tranlateWords = {};
     translate.get(['dashboard', 'auth', 'login',
-      'demo_management', 'demo', 'accessable_page', 'logout' , 'setting'
+      'demo_management', 'demo', 'accessable_page', 'logout' , 'setting',
+      'product_management','product_categories'
     ]).subscribe((res: string) => {
       tranlateWords = res;
     });
@@ -40,6 +41,17 @@ export class PagesComponent implements OnInit {
             title: tranlateWords['demo'],
             link: '/pages/demo-management/demo',
             key: 'Demo'
+          }
+        ]
+      },
+      {
+        title: tranlateWords['product_management'],
+        icon: 'nb-compose',
+        children: [
+          {
+            title: tranlateWords['product_categories'],
+            link: '/pages/product-management/productCategories',
+            key: 'ProductCategories'
           }
         ]
       },

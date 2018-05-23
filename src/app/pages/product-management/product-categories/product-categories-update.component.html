@@ -10,17 +10,27 @@
 <form #dataForm="ngForm" (ngSubmit)="onClickSaveBtn()">
     <div class="modal-body">
         <div class="row">
-            <div class="col-sm-12">
+            <div class="col-sm-6">
                 <div class="form-group">
-                    <label>{{'name_productCategories' | translate }}<i class="star">*</i></label>
-                    <input type="text" autofocus class="form-control" required [(ngModel)]="model.name"
-                     name="name" #name="ngModel"
-                    (ngModelChange)="onChangeNameValue(model.id, model.name)">
-                    <small class="form-text error" *ngIf="name.errors?.required && name.touched">
+                    <label>{{'code' | translate }}<i class="star">*</i></label>
+                    <input type="text" autofocus class="form-control" required [(ngModel)]="model.code"
+                    name="code" #code="ngModel"
+                    (ngModelChange)="onChangeCodeValue(model.id, model.code)">
+                    <small class="form-text error" *ngIf="helperService.isEmptyInput(code)">
                         {{ "is_required" | translate }}
                      </small>
-                     <small class="form-text error" *ngIf="!name.errors?.required && name.touched && isDuplicatedName">
+                     <small class="form-text error" *ngIf="isDuplicatedCode">
                         {{ "duplicated_value" | translate }}
+                     </small>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>{{'name' | translate }}<i class="star">*</i></label>
+                    <input type="text" autofocus class="form-control" required [(ngModel)]="model.name"
+                     name="name" #name="ngModel">
+                    <small class="form-text error" *ngIf="helperService.isEmptyInput(name)">
+                        {{ "is_required" | translate }}
                      </small>
                 </div>
             </div>
@@ -29,7 +39,7 @@
     </div>
     <div class="modal-footer">
         <!-- <button type="submit" class="btn btn-primary" [disabled]="!dataForm.form.valid || isDuplicatedForm()">{{'save' | translate}}</button> -->
-        <button type="submit" class="btn btn-primary" [disabled]="!dataForm.form.valid" >{{'save' | translate}}</button>
+        <button type="submit" class="btn btn-primary" [disabled]="!dataForm.form.valid || isDuplicatedForm()" >{{'save' | translate}}</button>
         
     </div>
 </form>

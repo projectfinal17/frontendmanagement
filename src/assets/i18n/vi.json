@@ -86,6 +86,6 @@
     "product_categories":"Danh mục sản phẩm",
     "add_product_categories":"Thêm Danh Mục",
     "edit_product_categories":"Sửa Danh Mục",
-    "name_productCategories":"Tên danh mục",
-    "productCate_search_placeholder":"Tên"
+    "productCate_search_placeholder":"Tên hoặc mã danh mục",
+    "delete_productcategory":"Xóa danh mục"
 }

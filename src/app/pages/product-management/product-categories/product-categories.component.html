@@ -7,7 +7,7 @@
           <showed-columns-button [showedColumnList]="showedColumnList"></showed-columns-button>
         </div>
         <div class="col-sm-6">
-          <button class="btn btn-hero-secondary btn-demo" (click)="getList()">
+          <button class="btn btn-outline-primary" (click)="getList()">
             <i class="fa fa-refresh"></i>
           </button>
         </div>
@@ -39,8 +39,15 @@
           </thead>
           <tbody>
             <tr *ngFor="let item of dataList">
+              <td *ngIf="helperService.isShowedColumn('code', showedColumnList)">{{item.code}}</td>
               <td *ngIf="helperService.isShowedColumn('name', showedColumnList)">{{item.name}}</td>
+
               <td>
+                  <button type="button" class="btn btn-sm btn-outline-secondary" placement="bottom"
+                  #p="ngbPopover" (document:click)="p.close()" (click)="$event.stopPropagation()"
+                  [ngbPopover]="popContent">
+                    <i class="fa fa-cog" aria-hidden="true"></i>
+                  </button>
                 <ng-template #popContent>
                   <div class="customize-action-button customize-edit-button" (click)="onClickEditBtn(item)">
                     <i class="fa fa-pencil" aria-hidden="true"></i> {{'edit' | translate}}
@@ -49,9 +56,6 @@
                     <i class="fa fa-trash" aria-hidden="true"></i> {{'delete' | translate}}
                   </div>
                 </ng-template>
-                <button type="button" class="btn btn-sm btn-outline-secondary" placement="bottom" [ngbPopover]="popContent">
-                  <i class="fa fa-cog" aria-hidden="true"></i>
-                </button>
               </td>
             </tr>
           </tbody>

@@ -5,7 +5,7 @@ import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ProductCategoriesUpdateModalComponent } from './product-categories-update.component';
 import { DeleteDialogComponent } from '../../commons/delete-dialog/delete-dialog.component';
 import { TranslateService } from '@ngx-translate/core';
-import { DemoService } from 'app/@core/data/demo.service';
+import { ProductCategoriesService } from 'app/@core/data/product-category.service';
 import { CONSTANT } from 'app/constant';
 import { AccessiblePageService } from 'app/@core/data/accessible-page.service';
 
@@ -24,11 +24,13 @@ export class ProductCategoriesComponent implements OnInit {
   keyword: string = '';
 
   showedColumnList = [
-    { name: 'name', translateKey: 'name', isShowed: true, sortable: true }
+    { name: 'code', translateKey: 'code', isShowed: true, sortable: true },
+    { name: 'name', translateKey: 'name', isShowed: true, sortable: true },
+    
   ];
 
   constructor(
-    private demoService: DemoService,
+    private productCategoriesService: ProductCategoriesService,
     public helperService: HelperService,
     private modalService: NgbModal,
     private translateService: TranslateService,
@@ -41,7 +43,7 @@ export class ProductCategoriesComponent implements OnInit {
   }
   async getList() {
     try {
-      let response = await this.demoService.getList(this.page - 1, CONSTANT.PAGE_SIZE, this.keyword, this.sort);
+      let response = await this.productCategoriesService.getList(this.page - 1, CONSTANT.PAGE_SIZE, this.keyword, this.sort);
       this.dataList = response.data;
       this.totalSize = response.totalSize;
     } catch (error) {
@@ -65,27 +67,29 @@ export class ProductCategoriesComponent implements OnInit {
   }
   onClickAddBtn(): void {
     const modalRef = this.modalService.open(ProductCategoriesUpdateModalComponent, { backdrop: 'static' });
-    modalRef.componentInstance.reload = () => {
+    modalRef.result.then(closeData => {
       this.getList();
-    };
+    }).catch(dismissData => {
+    })
   }
   onClickEditBtn(model: any): void {
     const modalRef = this.modalService.open(ProductCategoriesUpdateModalComponent, { backdrop: 'static' });
-    modalRef.componentInstance.reload = () => {
-      this.getList();
-    };
     modalRef.componentInstance.editedModel = model;
+    modalRef.result.then(closeData => {
+      this.getList();
+    }).catch(dismissData => {
+    })
   }
   onClickDeleteBtn(model: any): void {
     const modalRef = this.modalService.open(DeleteDialogComponent, { backdrop: 'static' });
     modalRef.componentInstance.reload = () => {
       this.getList();
     };
-    this.translateService.get("delete_demo").subscribe((res: string) => {
+    this.translateService.get("delete_productcategory").subscribe((res: string) => {
       modalRef.componentInstance.title = res;
     });
     modalRef.componentInstance.deleteFunction = () => {
-      return this.demoService.delete(model.id);
+      return this.productCategoriesService.delete(model.id);
     }
   }
 

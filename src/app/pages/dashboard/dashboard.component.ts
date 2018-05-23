@@ -13,17 +13,7 @@ export class DashboardComponent implements OnInit {
     private accessiblePagesSerivce: AccessiblePageService
   ) {
   }
-  saleMoneyData = {
-    totalMoney: 0,
-    totalCash: 0,
-    totalBank: 0,
-    totalCard: 0
-  };
-  todayString: string;
-  isValidRole = false;
-
+  
   async ngOnInit() {
-    this.todayString = this.helperService.getToday();
-    this.isValidRole = await this.accessiblePagesSerivce.isAccessableRole('Dashboard');
   }
 }

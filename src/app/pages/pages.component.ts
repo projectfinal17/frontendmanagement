@@ -34,19 +34,9 @@ export class PagesComponent implements OnInit {
         key: 'Dashboard'
       },
       {
-        title: tranlateWords['demo_management'],
-        icon: 'ion-android-car',
-        children: [
-          {
-            title: tranlateWords['demo'],
-            link: '/pages/demo-management/demo',
-            key: 'Demo'
-          }
-        ]
-      },
-      {
         title: tranlateWords['product_management'],
         icon: 'nb-compose',
+        // link: '/pages/products',
         children: [
           {
             title: tranlateWords['product_categories'],

@@ -282,5 +282,13 @@ export class HelperService {
       return '';
     }
   }
+
+  showSuccessToast(titleTranslateKey: string, messageTranslateKey: string) {
+    let translatedSentences;
+    this.translateService.get([titleTranslateKey, messageTranslateKey]).subscribe((res: string) => {
+      translatedSentences = res;
+      this.toastrService.success(translatedSentences[messageTranslateKey], translatedSentences[titleTranslateKey]);
+    });
+  }
 }
 

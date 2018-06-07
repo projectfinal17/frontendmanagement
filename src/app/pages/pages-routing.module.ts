@@ -25,6 +25,10 @@ const routes: Routes = [{
     loadChildren: './product-management/product-management.module#ProductManagementModule'
   },
   {
+    path: 'post-management',
+    loadChildren: './post-management/post-management.module#PostManagementModule'
+  },
+  {
     path: 'sales',
     loadChildren: './sales-management/sales-management.module#SalesManagementModule',
   },

@@ -21,7 +21,10 @@ export class PagesComponent implements OnInit {
     let tranlateWords = {};
     translate.get(['dashboard', 'auth', 'login',
       'demo_management', 'demo', 'accessable_page', 'logout' , 'setting',
-      'product_management','product_categories'
+      'product_management','product_categories','product',
+      'customer_management','customers',
+      'post_management','posts',
+      'bill_management',
     ]).subscribe((res: string) => {
       tranlateWords = res;
     });
@@ -35,32 +38,71 @@ export class PagesComponent implements OnInit {
       },
       {
         title: tranlateWords['product_management'],
-        icon: 'nb-compose',
+        icon: 'nb-grid-b-outline',
         // link: '/pages/products',
         children: [
           {
             title: tranlateWords['product_categories'],
             link: '/pages/product-management/productCategories',
             key: 'ProductCategories'
+          },
+          {
+            title: tranlateWords['product'],
+            link: '/pages/product-management/products',
+            key: 'Products'
           }
         ]
       },
       {
-        title: tranlateWords['setting'],
-        icon: 'nb-gear',
+        title: tranlateWords['customer_management'],
+        icon: 'nb-person',
+        // link: '/pages/products',
         children: [
           {
-            title: tranlateWords['accessable_pages'],
-            link: '/pages/settings/accessable-pages',
-            key: 'AccessablePage'
-          },
-          {
-            title: tranlateWords['user'],
-            link: '/pages/settings/users',
-            key: 'User'
-          },
-        ],
+            title: tranlateWords['customers'],
+            // link: '/pages/product-management/productCategories',
+            key: 'Customers'
+          }
+        ]
       },
+      {
+        title: tranlateWords['bill_management'],
+        icon: 'fa fa-archive',
+        children: [
+          {
+            // title: tranlateWords['posts'],
+            // link: '/pages/post-management/posts',
+            // key: 'Posts'
+          }
+        ]
+      },
+      {
+        title: tranlateWords['post_management'],
+        icon: 'nb-compose',
+        children: [
+          {
+            title: tranlateWords['posts'],
+            link: '/pages/post-management/posts',
+            key: 'Posts'
+          }
+        ]
+      },
+      // {
+      //   title: tranlateWords['setting'],
+      //   icon: 'nb-gear',
+      //   children: [
+      //     {
+      //       title: tranlateWords['accessable_pages'],
+      //       link: '/pages/settings/accessable-pages',
+      //       key: 'AccessablePage'
+      //     },
+      //     {
+      //       title: tranlateWords['user'],
+      //       link: '/pages/settings/users',
+      //       key: 'User'
+      //     },
+      //   ],
+      // },
       {
         title: tranlateWords['auth'],
         icon: 'nb-locked',

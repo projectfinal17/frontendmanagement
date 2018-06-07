@@ -7,6 +7,7 @@ import { RoleService } from 'app/@core/data/role.service';
 import { AccessiblePageService } from 'app/@core/data/accessible-page.service';
 import { StateService } from 'app/@core/data/state.service';
 import { ProductCategoriesService } from 'app/@core/data/product-category.service';
+import { ProductService } from './product.service';
 
 const SERVICES = [
   AuthService,
@@ -16,6 +17,7 @@ const SERVICES = [
   AccessiblePageService,
   StateService,
   ProductCategoriesService,
+  ProductService
 ];
 
 @NgModule({

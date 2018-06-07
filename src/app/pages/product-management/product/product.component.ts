@@ -2,20 +2,21 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { LocalDataSource, ViewCell } from 'ng2-smart-table';
 import { HelperService } from '../../../@core/utils/helper.service';
 import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { ProductCategoriesUpdateModalComponent } from './product-categories-update.component';
+import { ProductUpdateModalComponent } from './product-update.component';
 import { DeleteDialogComponent } from '../../commons/delete-dialog/delete-dialog.component';
 import { TranslateService } from '@ngx-translate/core';
-import { ProductCategoriesService } from 'app/@core/data/product-category.service';
+import { ProductService } from 'app/@core/data/product.service';
 import { CONSTANT } from 'app/constant';
-import { AccessiblePageService } from 'app/@core/data/accessible-page.service';
+import { ProductActivelModalComponent } from './product-active.component';
+import { ProductPauselModalComponent } from './product-pause.component';
 
 @Component({
   selector: 'my-product',
-  templateUrl: './product-categories.component.html',
+  templateUrl: './product.component.html',
   styles: [`
   `],
 })
-export class ProductCategoriesComponent implements OnInit {
+export class ProductComponent implements OnInit {
 
   dataList = [];
   page: number = 1;
@@ -26,15 +27,21 @@ export class ProductCategoriesComponent implements OnInit {
   showedColumnList = [
     { name: 'code', translateKey: 'code', isShowed: true, sortable: false },
     { name: 'name', translateKey: 'name', isShowed: true, sortable: true },
+    { name: 'productCategoryName', translateKey: 'product_categories', isShowed: true, sortable: true },
+    { name: 'salePrice', translateKey: 'salePrice', isShowed: true, sortable: true },
+    { name: 'wholeSalePrice', translateKey: 'wholeSalePrice', isShowed: true, sortable: true },
+    { name: 'createdDate', translateKey: 'createdDate', isShowed: true, sortable: true },
+    { name: 'imageUrlList', translateKey: 'imageUrl', isShowed: false, sortable: false },
+    { name: 'description', translateKey: 'description', isShowed: true, sortable: false },
+    { name: 'isActive', translateKey: 'isActive', isShowed: true, sortable: false },
     
   ];
 
   constructor(
-    private productCategoriesService: ProductCategoriesService,
+    private productService: ProductService,
     public helperService: HelperService,
     private modalService: NgbModal,
     private translateService: TranslateService,
-    private pagesService: AccessiblePageService
   ) {
 
   }
@@ -43,7 +50,7 @@ export class ProductCategoriesComponent implements OnInit {
   }
   async getList() {
     try {
-      let response = await this.productCategoriesService.getList(this.page - 1, CONSTANT.PAGE_SIZE, this.keyword, this.sort);
+      let response = await this.productService.getList(this.page - 1, CONSTANT.PAGE_SIZE, this.keyword, this.sort);
       this.dataList = response.data;
       this.totalSize = response.totalSize;
     } catch (error) {
@@ -66,14 +73,14 @@ export class ProductCategoriesComponent implements OnInit {
     this.getList();
   }
   onClickAddBtn(): void {
-    const modalRef = this.modalService.open(ProductCategoriesUpdateModalComponent, { backdrop: 'static' });
+    const modalRef = this.modalService.open(ProductUpdateModalComponent, { backdrop: 'static' });
     modalRef.result.then(closeData => {
       this.getList();
     }).catch(dismissData => {
     })
   }
   onClickEditBtn(model: any): void {
-    const modalRef = this.modalService.open(ProductCategoriesUpdateModalComponent, { backdrop: 'static' });
+    const modalRef = this.modalService.open(ProductUpdateModalComponent, { backdrop: 'static' });
     modalRef.componentInstance.editedModel = model;
     modalRef.result.then(closeData => {
       this.getList();
@@ -89,8 +96,19 @@ export class ProductCategoriesComponent implements OnInit {
       modalRef.componentInstance.title = res;
     });
     modalRef.componentInstance.deleteFunction = () => {
-      return this.productCategoriesService.delete(model.id);
+      return this.productService.delete(model.id);
     }
+  }
+
+  onClickPauseBtn(item: any) {
+    const modalRef = this.modalService.open(ProductPauselModalComponent, { backdrop: 'static' });
+    modalRef.componentInstance.editedModel = item;
+    modalRef.result.then( closeData=>{ this.getList() } ).catch( dissmissData=>{})
+  }
+  onClickActiveBtn(item: any){
+    const modalRef = this.modalService.open( ProductActivelModalComponent, { backdrop: 'static' });
+    modalRef.componentInstance.editedModel = item;
+    modalRef.result.then( closeData=>{ this.getList() } ).catch( dissmissData=>{})
   }
 
   formatDate(jsonDate: string): string {

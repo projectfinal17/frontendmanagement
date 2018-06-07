@@ -5,18 +5,11 @@ import {TranslateModule} from '@ngx-translate/core';
 import {CommonsModule} from '../commons/commons.module';
 import { CurrencyMaskModule } from "ng2-currency-mask";
 import { PipeModule } from '../../pipes/pipe.module';
-import { ProductCategoriesUpdateModalComponent } from 'app/pages/product-management/product-categories/product-categories-update.component';
-import { ProductUpdateModalComponent } from 'app/pages/product-management/product/product-update.component';
-import { TablesRoutingModule,routedComponents } from './product-management-routing.module';
-import { ProductPauselModalComponent } from './product/product-pause.component';
-import { ProductActivelModalComponent } from './product/product-active.component';
+import { PostsUpdateModalComponent } from 'app/pages/post-management/post/post-update.component';
+import { TablesRoutingModule,routedComponents } from './post-management-routing.module';
 
 const notRoutedComponents = [ 
-  ProductCategoriesUpdateModalComponent,
-  ProductUpdateModalComponent,
-  ProductPauselModalComponent,
-  ProductActivelModalComponent,
-  
+  PostsUpdateModalComponent,
 ]
 
 @NgModule({
@@ -37,4 +30,4 @@ const notRoutedComponents = [
   providers: [
   ],
 })
-export class ProductManagementModule { }
+export class PostManagementModule { }

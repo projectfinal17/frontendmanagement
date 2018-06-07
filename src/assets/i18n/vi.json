@@ -52,7 +52,6 @@
     "day_month_year": "ngày/tháng/năm",
     "confirm": "Xác nhận",
     "destroy": "Hủy",
-    "active": "Kích hoạt",
     "destroy_success": "Hủy thành công",
     "active_success": "Kích hoạt thành công",
     "wrong_email_or_password": "Sai email hoặc mật khẩu",
@@ -87,5 +86,34 @@
     "add_product_categories":"Thêm Danh Mục",
     "edit_product_categories":"Sửa Danh Mục",
     "productCate_search_placeholder":"Tên hoặc mã danh mục",
-    "delete_productcategory":"Xóa danh mục"
+    "delete_productcategory":"Xóa danh mục",
+
+    "product":"Sản phẩm",
+    "salePrice":"Giá bán",
+    "wholeSalePrice":"Giá bán chẵn",
+    "isActive":"Trạng thái",
+    "active":"Còn hàng",
+    "pause":"Hết hàng",
+    "active_product":"Kích hoạt sản phẩm",
+    "active_product_message":"Sản phẩm sẽ được chuyển sang trạng thái còn hàng",
+    "pause_product":"Tạm dừng sản phẩm ",
+    "pause_product_message":"Sản phẩm sẽ được chuyển sang trạng thái hết hàng",
+    "active_product_successfully":"Kích hoạt thành công",
+    "pause_product_successfully":"Tạm dừng thành công",
+    "product_search_placeholder":"Tên hoặc mã sản phẩm",
+
+    "customer_management":"Quản lý khách hàng",
+    "customers":"Khách hàng",
+
+    "post_management":"Quản lý bài đăng",
+    "posts":"Bài đăng",
+    "title":"Tiêu đề",
+    "createdDate":"Ngày tạo",
+    "description":"Mô tả",
+    "content":"Nội dung",
+    "add_post":"Thêm bài đăng",
+    "edit_post":"Sửa bài đăng",
+    "imageUrl":"Link hình ảnh",
+
+    "bill_management":"Quản lý phiếu hàng"
 }

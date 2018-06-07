@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'my-product-management',
+  selector: 'my-post-management',
   template: `<router-outlet></router-outlet>`,
 })
-export class ProductManagementComponent {
+export class PostManagementComponent {
 }

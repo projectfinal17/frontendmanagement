@@ -47,6 +47,7 @@ export class ProductUpdateModalComponent implements OnInit {
             this.isEditMode = true;
             this.model = this.helperService.deepCopy(this.editedModel);
         }
+        await this.getAllProducts();
         await this.getAllProductCategories();
     }
     isDuplicatedForm() {
@@ -72,7 +73,6 @@ export class ProductUpdateModalComponent implements OnInit {
     async onClickSaveBtn() {
         try {
             if (this.isEditMode) {
-                console.log(this.model);
                 let response = await this.productService.edit(this.model.id, this.model);
 
                 this.helperService.showEditSuccessToast();

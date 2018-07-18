@@ -1,7 +1,7 @@
 <div class="modal-header">
     <h4 class="modal-title">
-        <span *ngIf="!isEditMode">{{'add_product_categories' | translate }}</span>
-        <span *ngIf="isEditMode">{{'edit_product_categories' | translate }}</span>
+        <span *ngIf="!isEditMode">{{'add_product' | translate }}</span>
+        <span *ngIf="isEditMode">{{'edit_product' | translate }}</span>
     </h4>
     <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss()">
       <span aria-hidden="true">&times;</span>
@@ -48,7 +48,7 @@
             <div class="col-sm-6">
                 <div class="form-group">
                     <label>{{'salePrice' | translate }}<i class="star">*</i></label>
-                    <input type="text" autofocus class="form-control" required [(ngModel)]="model.salePrice"
+                    <input type="number" autofocus class="form-control" required [(ngModel)]="model.salePrice"
                     name="salePrice" #salePrice="ngModel">
                     <small class="form-text error" *ngIf="helperService.isEmptyInput(salePrice)">
                        {{ "is_required" | translate }}
@@ -61,7 +61,7 @@
             <div class="col-sm-6">
                 <div class="form-group">
                     <label>{{'wholeSalePrice' | translate }}<i class="star">*</i></label>
-                    <input type="text" autofocus class="form-control" required [(ngModel)]="model.wholeSalePrice"
+                    <input type="number" autofocus class="form-control" required [(ngModel)]="model.wholeSalePrice"
                     name="wholeSalePrice" #wholeSalePrice="ngModel">
                     <small class="form-text error" *ngIf="helperService.isEmptyInput(wholeSalePrice)">
                        {{ "is_required" | translate }}

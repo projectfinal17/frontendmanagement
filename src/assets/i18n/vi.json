@@ -101,6 +101,9 @@
     "active_product_successfully":"Kích hoạt thành công",
     "pause_product_successfully":"Tạm dừng thành công",
     "product_search_placeholder":"Tên hoặc mã sản phẩm",
+    "add_product":"Thêm Sản Phẩm",
+    "edit_product":"Sửa Sản Phẩm",
+    "delete_product":"Xóa Sản Phẩm",
 
     "customer_management":"Quản lý khách hàng",
     "customers":"Khách hàng",
@@ -114,6 +117,7 @@
     "add_post":"Thêm bài đăng",
     "edit_post":"Sửa bài đăng",
     "imageUrl":"Link hình ảnh",
+    "delete_post":"Xóa Bài Đăng",
 
     "bill_management":"Quản lý phiếu hàng"
 }

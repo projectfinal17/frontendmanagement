@@ -92,7 +92,7 @@ export class ProductComponent implements OnInit {
     modalRef.componentInstance.reload = () => {
       this.getList();
     };
-    this.translateService.get("delete_productcategory").subscribe((res: string) => {
+    this.translateService.get("delete_product").subscribe((res: string) => {
       modalRef.componentInstance.title = res;
     });
     modalRef.componentInstance.deleteFunction = () => {

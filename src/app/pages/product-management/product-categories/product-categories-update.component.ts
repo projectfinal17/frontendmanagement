@@ -38,9 +38,6 @@ export class ProductCategoriesUpdateModalComponent implements OnInit {
         private i18n: I18n, 
         config: NgbDatepickerConfig,
     ) {
-        // config maxDate and languge for date picker
-        config.maxDate = this.today;
-        this.i18n.language = this.translateService.currentLang;
     }
 
     async ngOnInit() {

@@ -6,7 +6,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { NgbDatepickerConfig, NgbDateStruct, NgbDateParserFormatter, NgbDatepickerI18n } from '@ng-bootstrap/ng-bootstrap';
 import { NgbDateFRParserFormatter } from "../../commons/ng-bootstrap-datepicker-util/ngb-date-fr-parser-formatter";
 import { CustomDatepickerI18n, I18n } from "../../commons/ng-bootstrap-datepicker-util/ngbd-datepicker-i18n";
-import { DemoService } from 'app/@core/data/demo.service';
+import { PostsService } from 'app/@core/data/post.service';
 
 @Component({
     selector: 'post-update-modal-component',
@@ -25,26 +25,20 @@ export class PostsUpdateModalComponent implements OnInit {
     model: any = {
     };
     isEditMode = false;
-    allDemos: any = [];
-    isDuplicatedName = false;
-    providersList: any = [];
+    allPosts: any = [];
+    isDuplicatedCode = false;
     productCategoryList: any = [];
     selectedDate: any = this.today;
-    allStorages: any = [];
-    isSelectedStorages: any = [];
     isKeepOpen: boolean = false;
 
     constructor(public activeModal: NgbActiveModal,
         public helperService: HelperService,
         private toastrService: ToastrService,
-        private demoService : DemoService,
+        private postService : PostsService,
         private translateService: TranslateService,
         private i18n: I18n, 
         config: NgbDatepickerConfig,
     ) {
-        // config maxDate and languge for date picker
-        config.maxDate = this.today;
-        this.i18n.language = this.translateService.currentLang;
     }
 
     async ngOnInit() {
@@ -52,40 +46,32 @@ export class PostsUpdateModalComponent implements OnInit {
             this.isEditMode = true;
             this.model = this.helperService.deepCopy(this.editedModel);
         }
-        await this.getAllDemos();
+        await this.getAllPosts();
     }
 
     isDuplicatedForm() {
-        return this.isDuplicatedName;
+        return this.isDuplicatedCode;
     }
 
-    async getAllDemos() {
-        const response = await this.demoService.getAll();
-        this.allDemos = response.data;
+    async getAllPosts() {
+        const response = await this.postService.getAll();
+        this.allPosts = response.data;
     }
   
     async onChangeNameValue(id, value) {
-        this.isDuplicatedName = this.helperService.isDuplicatedValue(id, value, 'name', this.allDemos);
+        this.isDuplicatedCode = this.helperService.isDuplicatedValue(id, value, 'code', this.allPosts);
     }
 
     async onClickSaveBtn() {
-        let inputStorageIdList = [];
-        for (let i = 0; i < this.isSelectedStorages.length; i++) {
-            if (this.isSelectedStorages[i]) {
-                inputStorageIdList.push(this.allStorages[i].id);
-            }
-        }
-        this.model.updatePriceDate = this.helperService.convertNgDatePickerToJSONFormat(this.selectedDate);
-        this.model.inputStorageIdList = inputStorageIdList;
         try {
             if (this.isEditMode) {
-                let response = await this.demoService.edit(this.model.id, this.model);
+                let response = await this.postService.edit(this.model.id, this.model);
                 this.helperService.showEditSuccessToast();
             } else {
-                let response = await this.demoService.add(this.model);
+                let response = await this.postService.add(this.model);
                 this.helperService.showAddSuccessToast();
                 if (this.isKeepOpen) {
-                    this.getAllDemos();
+                    this.getAllPosts();
                     this.model.name = null;
                 }
             }

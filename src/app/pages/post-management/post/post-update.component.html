@@ -15,7 +15,7 @@
                     <label>{{'code' | translate }}<i class="star">*</i></label>
                     <input type="text" autofocus class="form-control" required [(ngModel)]="model.code"
                      name="code" #code="ngModel"
-                    (ngModelChange)="onChangeCodeValue(model.id, model.code)">
+                    (ngModelChange)="onChangeNameValue(model.id, model.code)">
                     <small class="form-text error" *ngIf="helperService.isEmptyInput(code)">
                         {{ "is_required" | translate }}
                     </small>
@@ -27,9 +27,9 @@
             <div class="col-sm-6">
                 <div class="form-group">
                     <label>{{'title' | translate }}<i class="star">*</i></label>
-                    <input type="text" autofocus class="form-control" required [(ngModel)]="model.title"
-                     name="title" #title="ngModel">
-                    <small class="form-text error" *ngIf="helperService.isEmptyInput(title)">
+                    <input type="text" autofocus class="form-control" required [(ngModel)]="model.tittle"
+                     name="tittle" #tittle="ngModel">
+                    <small class="form-text error" *ngIf="helperService.isEmptyInput(tittle)">
                         {{ "is_required" | translate }}
                     </small>
                 </div>
@@ -39,9 +39,9 @@
             <div class="col-sm-6">
                 <div class="form-group">
                     <label>{{'imageUrl' | translate }}<i class="star">*</i></label>
-                    <input type="text" autofocus class="form-control" required [(ngModel)]="model.imageUrl"
-                    name="imageUrl" #imageUrl="ngModel">
-                    <small class="form-text error" *ngIf="helperService.isEmptyInput(imageUrl)">
+                    <input type="text" autofocus class="form-control" required [(ngModel)]="model.image"
+                    name="image" #image="ngModel">
+                    <small class="form-text error" *ngIf="helperService.isEmptyInput(image)">
                         {{ "is_required" | translate }}
                     </small>
                 </div>
@@ -51,7 +51,7 @@
                     <label>{{'description' | translate }}<i class="star">*</i></label>
                     <input type="text" autofocus class="form-control" required [(ngModel)]="model.description "
                     name="description " #description ="ngModel">
-                    <small class="form-text error" *ngIf="helperService.isEmptyInput(description )">
+                    <small class="form-text error" *ngIf="helperService.isEmptyInput(description)">
                         {{ "is_required" | translate }}
                     </small>
                 </div>

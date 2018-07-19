@@ -29,7 +29,6 @@ export class ProductComponent implements OnInit {
     { name: 'name', translateKey: 'name', isShowed: true, sortable: true },
     { name: 'productCategoryName', translateKey: 'product_categories', isShowed: true, sortable: true },
     { name: 'salePrice', translateKey: 'salePrice', isShowed: true, sortable: true },
-    { name: 'wholeSalePrice', translateKey: 'wholeSalePrice', isShowed: true, sortable: true },
     { name: 'createdDate', translateKey: 'createdDate', isShowed: true, sortable: true },
     { name: 'imageUrlList', translateKey: 'imageUrl', isShowed: false, sortable: false },
     { name: 'description', translateKey: 'description', isShowed: true, sortable: false },

@@ -43,7 +43,6 @@
               <td *ngIf="helperService.isShowedColumn('name', showedColumnList)">{{item.name}}</td>
               <td *ngIf="helperService.isShowedColumn('productCategoryName', showedColumnList)">{{item.productCategory.name}}</td>
               <td *ngIf="helperService.isShowedColumn('salePrice', showedColumnList)">{{item.salePrice}}</td>
-              <td *ngIf="helperService.isShowedColumn('wholeSalePrice', showedColumnList)">{{item.wholeSalePrice}}</td>
               <td *ngIf="helperService.isShowedColumn('createdDate', showedColumnList)">{{ helperService.convertJSONDatetoDayMonthYear(item.createdDate) }}</td>
               <td *ngIf="helperService.isShowedColumn('imageUrlList', showedColumnList)">{{ item.imageUrlList }}</td>
               <td *ngIf="helperService.isShowedColumn('description', showedColumnList)">{{ item.description }}</td>

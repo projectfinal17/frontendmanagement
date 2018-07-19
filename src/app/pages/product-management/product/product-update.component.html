@@ -58,17 +58,7 @@
         </div>
 
         <div class="row">
-            <div class="col-sm-6">
-                <div class="form-group">
-                    <label>{{'wholeSalePrice' | translate }}<i class="star">*</i></label>
-                    <input type="number" autofocus class="form-control" required [(ngModel)]="model.wholeSalePrice"
-                    name="wholeSalePrice" #wholeSalePrice="ngModel">
-                    <small class="form-text error" *ngIf="helperService.isEmptyInput(wholeSalePrice)">
-                       {{ "is_required" | translate }}
-                    </small>
-                </div>
-            </div>
-            <div class="col-sm-6">
+            <div class="col-sm-12">
                 <div class="form-group">
                     <label>{{'imageUrl' | translate }}<i class="star">*</i></label>
                     <input type="text" autofocus class="form-control" required [(ngModel)]="model.imageUrlList"

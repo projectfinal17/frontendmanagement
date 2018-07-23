@@ -32,6 +32,20 @@ export class UserService extends BaseService {
       this.childHelperService.handleError(error);
     }
   }
+  
+  async changeActiveStatus(id: string, isActive: boolean ): Promise<any> {
+    try {
+      let headers = this.childHelperService.getHeadersRequest();
+      let options = new RequestOptions({ headers: headers });
+      let body = {};
+      const response = await this.childHttp.put(`${this.domain}/isActive/${id}/${isActive}`, body ,  options)
+        .toPromise();
+      return response.json();
+    } catch (error) {
+      this.childHelperService.handleError(error);
+    }
+  }
+
   async resetPassword(userId: string, model: ResetPasswordModel): Promise<any> {
     try {
       let headers = this.childHelperService.getHeadersRequest();

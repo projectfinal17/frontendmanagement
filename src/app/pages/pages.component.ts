@@ -60,7 +60,7 @@ export class PagesComponent implements OnInit {
         children: [
           {
             title: tranlateWords['customers'],
-            // link: '/pages/product-management/productCategories',
+            link: '/pages/customer-management/customers',
             key: 'Customers'
           }
         ]

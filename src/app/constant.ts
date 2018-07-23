@@ -11,9 +11,7 @@ export const CONSTANT = {
         OWNER: "OWNER",
         MANAGER: "MANAGER",
         SALESMAN: "SALESMAN", 
-        WAREHOUSE: "WAREHOUSE"
     },
-    EMAIL_PARTERN: "^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+    EMAIL_PARTERN: "^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$",
 
-    
 }

@@ -245,9 +245,8 @@ export class HelperService {
     return ((input && input.errors && input.errors.minlength) && input.touched);
   }
   isWrongEmailPartern(input) {
-    return ((input && input.errors && input.errors.partern) && input.touched);
+    return ( (input && input.errors && input.errors.pattern) && input.touched);
   }
-
   convertJSONToObject(json) {
     return JSON.parse(json);
   }

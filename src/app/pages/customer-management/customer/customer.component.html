@@ -1,6 +1,6 @@
 <nb-card>
   <nb-card-header>
-    {{ 'product' | translate }}
+    {{ 'customers' | translate }}
     <span class="pull-right">
       <div class="row">
         <div class="col-sm-6">
@@ -19,7 +19,7 @@
       <div class="row default-vertical-margin">
         <div class="col-sm-6">
           <div class="input-group">
-            <input type="text" class="form-control" name="search" [(ngModel)]="keyword" placeholder="{{ 'product_search_placeholder' | translate }}">
+            <input type="text" class="form-control" name="search" [(ngModel)]="keyword" placeholder="{{ 'demo_search_placeholder' | translate }}">
             <span class="input-group-btn">
               <button class="btn btn-primary" type="submit">{{ 'search' | translate}}</button>
             </span>
@@ -33,38 +33,37 @@
         <table class="table">
           <thead>
             <td *ngFor="let showedColumn of showedColumnList" [hidden]="!helperService.isShowedColumn(showedColumn.name , showedColumnList )"
-              [ngClass]="helperService.getSortableCssClass(sort , showedColumn.name , showedColumn.sortable )" (click)="onChangeSortedField(showedColumn.name, showedColumn.sortable)">{{ showedColumn.translateKey | translate }}</td>
+              [ngClass]="helperService.getSortableCssClass(sort , showedColumn.name ,   showedColumn.sortable )" (click)="onChangeSortedField(showedColumn.name , showedColumn.sortable)">{{ showedColumn.translateKey | translate }}</td>
             <td></td>
 
           </thead>
           <tbody>
             <tr *ngFor="let item of dataList">
-              <td *ngIf="helperService.isShowedColumn('code', showedColumnList)">{{item.code}}</td>
-              <td *ngIf="helperService.isShowedColumn('name', showedColumnList)">{{item.name}}</td>
-              <td *ngIf="helperService.isShowedColumn('productCategoryName', showedColumnList)">{{item.productCategory.name}}</td>
-              <td *ngIf="helperService.isShowedColumn('salePrice', showedColumnList)">{{item.salePrice}}</td>
-              <td *ngIf="helperService.isShowedColumn('createdDate', showedColumnList)">{{ helperService.convertJSONDatetoDayMonthYear(item.createdDate) }}</td>
-              <td *ngIf="helperService.isShowedColumn('imageUrlList', showedColumnList)">{{ item.imageUrlList }}</td>
-              <td *ngIf="helperService.isShowedColumn('description', showedColumnList)">{{ item.description }}</td>
+              <td *ngIf="helperService.isShowedColumn('userName', showedColumnList)">{{ item.userName }}</td>
+              <td *ngIf="helperService.isShowedColumn('firstName', showedColumnList)">{{ item.firstName }}</td>
+              <td *ngIf="helperService.isShowedColumn('lastName', showedColumnList)">{{ item.lastName }}</td>
+              <td *ngIf="helperService.isShowedColumn('email', showedColumnList)">{{ item.email }}</td>
+              <td *ngIf="helperService.isShowedColumn('phoneNumber', showedColumnList)">{{ item.phoneNumber }}</td>
+              <td *ngIf="helperService.isShowedColumn('address', showedColumnList)">{{ item.address }}</td>
+              <td *ngIf="helperService.isShowedColumn('roleNames', showedColumnList)">{{ helperService.toLowercase(item.roleNames[0]) }}</td>
               <td *ngIf="helperService.isShowedColumn('isActive', showedColumnList)">
-                  <span *ngIf="item.isActive === true" class="text-primary"> {{'full' | translate}} </span>
-                  <span *ngIf="item.isActive === false" class="text-danger"> {{'stock' | translate}} </span>
+                <span *ngIf="item.isActive === true" class="text-primary"> {{'active' | translate}} </span>
+                <span *ngIf="item.isActive === false" class="text-danger"> {{'pause' | translate}} </span>
               </td>
-              
+
               <td>
-                  <button type="button" class="btn btn-sm btn-outline-secondary" placement="bottom"
-                  #p="ngbPopover" (document:click)="p.close()" (click)="$event.stopPropagation()"
-                  [ngbPopover]="popContent">
-                    <i class="fa fa-cog" aria-hidden="true"></i>
-                  </button>
+                <button type="button" class="btn btn-sm btn-outline-secondary" placement="bottom" #p="ngbPopover" (document:click)="p.close()"
+                  (click)="$event.stopPropagation()" [ngbPopover]="popContent">
+                  <i class="fa fa-cog" aria-hidden="true"></i>
+                </button>
                 <ng-template #popContent>
-                  <div  *ngIf="item.isActive" class="customize-action-button customize-edit-button" (click)="onClickEditBtn(item)">
+                  <div class="customize-action-button customize-edit-button" (click)="onClickEditBtn(item)">
                     <i class="fa fa-pencil" aria-hidden="true"></i> {{'edit' | translate}}
                   </div>
                   <div *ngIf="item.isActive === false" class="customize-action-button customize-delete-button" (click)="onClickDeleteBtn(item)">
                     <i class="fa fa-trash" aria-hidden="true"></i> {{'delete' | translate}}
                   </div>
-                  <div *ngIf="item.isActive" class="customize-action-button customize-delete-button" (click)="onClickPauseBtn(item)">
+                  <div *ngIf="item.isActive === true" class="customize-action-button customize-delete-button" (click)="onClickPauseBtn(item)">
                     <i class="fa fa-pause" aria-hidden="true"></i> {{'pause' | translate}}
                   </div>
                   <div *ngIf="item.isActive === false" class="customize-action-button customize-edit-button" (click)="onClickActiveBtn(item)">

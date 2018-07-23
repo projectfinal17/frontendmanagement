@@ -33,6 +33,10 @@ const routes: Routes = [{
     loadChildren: './sales-management/sales-management.module#SalesManagementModule',
   },
   {
+    path: 'customer-management',
+    loadChildren: './customer-management/customer-management.module#CustomerManagementModule'
+  },
+  {
     path: '',
     redirectTo: 'dashboard',
     pathMatch: 'full',

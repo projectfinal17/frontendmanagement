@@ -24,7 +24,7 @@ export class PagesComponent implements OnInit {
       'product_management','product_categories','product',
       'customer_management','customers',
       'post_management','posts',
-      'bill_management',
+      'order_management','order'
     ]).subscribe((res: string) => {
       tranlateWords = res;
     });
@@ -66,13 +66,13 @@ export class PagesComponent implements OnInit {
         ]
       },
       {
-        title: tranlateWords['bill_management'],
+        title: tranlateWords['order_management'],
         icon: 'fa fa-archive',
         children: [
           {
-            // title: tranlateWords['posts'],
-            // link: '/pages/post-management/posts',
-            // key: 'Posts'
+            title: tranlateWords['order'],
+            link: '/pages/order-management/orders',
+            key: 'Orders'
           }
         ]
       },

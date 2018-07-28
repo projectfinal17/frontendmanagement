@@ -31,7 +31,7 @@ export class HeaderComponent implements OnInit {
   async ngOnInit() {
     var data = await this.userService.getCurrentUser();
     this.user.name = data.name;
-    this.user.picture = "assets/images/thc.png";
+    this.user.picture = "assets/images/plt.jpg";
     this.getSubMenu();
   }
   private getSubMenu() {

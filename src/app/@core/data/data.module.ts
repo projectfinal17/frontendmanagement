@@ -9,6 +9,7 @@ import { StateService } from 'app/@core/data/state.service';
 import { ProductCategoriesService } from 'app/@core/data/product-category.service';
 import { ProductService } from './product.service';
 import { PostsService } from './post.service';
+import { OrderService } from './order.service';
 
 const SERVICES = [
   AuthService,
@@ -19,7 +20,8 @@ const SERVICES = [
   StateService,
   ProductCategoriesService,
   ProductService,
-  PostsService
+  PostsService,
+  OrderService
 ];
 
 @NgModule({

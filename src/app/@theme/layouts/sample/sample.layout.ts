@@ -30,7 +30,7 @@ import 'rxjs/add/operator/delay';
                    [right]="sidebar.id === 'right'">
         <nb-sidebar-header>
           <a class="btn btn-hero-primary main-btn">
-            <span><img src="assets/images/logo.png"></span>
+            <span><img src=""></span>
           </a>
         </nb-sidebar-header>
         <ng-content select="nb-menu"></ng-content>

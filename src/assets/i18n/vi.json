@@ -128,5 +128,15 @@
     "imageUrl":"Link hình ảnh",
     "delete_post":"Xóa Bài Đăng",
 
-    "bill_management":"Quản lý phiếu hàng"
+    "order_management":"Quản lý đơn hàng",
+    "order":"Đơn hàng",
+    "order_search":"Mã đơn hàng",
+    "totalMoney":"Tổng tiền",
+    "add_order":"Thêm đơn hàng",
+    "detail":"Chi tiết",
+    "order_detail":"Chi tiết đơn hàng",
+    "product_list":"Danh sách hàng hóa",
+    "customer_info":"Thông tin khách hàng",
+    "amount":"Số lượng",
+    "total_product_money":"Tổng số tiền hàng hóa"
 }

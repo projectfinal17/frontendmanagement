@@ -1,21 +1,21 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { SalesManagmentComponent } from './sales-management.component';
+import { OrderManagmentComponent } from './order-management.component';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import {DeleteDialogComponent} from '../commons/delete-dialog/delete-dialog.component';
-import {CarsComponent} from './cars/cars.component'; 
-import {CarsUpdateModalComponent} from './cars/cars-update.component';
+import {OrderComponent} from './order/order.component'; 
+import { OrderDetailModalComponent } from 'app/pages/order-management/order/order-detail.component';
 
 const routes: Routes = [{
   path: '',
-  component: SalesManagmentComponent,
+  component: OrderManagmentComponent,
   children: [
  
     {
-      path: 'cars',
-      component: CarsComponent,
+      path: 'orders',
+      component: OrderComponent,
     },
 ],
 }];
@@ -26,14 +26,13 @@ const routes: Routes = [{
   exports: [RouterModule],
   entryComponents: [
      DeleteDialogComponent , 
-  
+     OrderDetailModalComponent
   ]
 })
 export class TablesRoutingModule { }
 
 export const routedComponents = [
-  SalesManagmentComponent,
-
-  CarsComponent,
+  OrderManagmentComponent,
+  OrderComponent,
 
 ];

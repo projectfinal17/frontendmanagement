@@ -100,11 +100,13 @@ export class ProductComponent implements OnInit {
   }
 
   onClickPauseBtn(item: any) {
+    console.log(item);
     const modalRef = this.modalService.open(ProductPauselModalComponent, { backdrop: 'static' });
     modalRef.componentInstance.editedModel = item;
     modalRef.result.then( closeData=>{ this.getList() } ).catch( dissmissData=>{})
   }
   onClickActiveBtn(item: any){
+    console.log(item);
     const modalRef = this.modalService.open( ProductActivelModalComponent, { backdrop: 'static' });
     modalRef.componentInstance.editedModel = item;
     modalRef.result.then( closeData=>{ this.getList() } ).catch( dissmissData=>{})

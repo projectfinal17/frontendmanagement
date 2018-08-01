@@ -138,5 +138,7 @@
     "product_list":"Danh sách hàng hóa",
     "customer_info":"Thông tin khách hàng",
     "amount":"Số lượng",
-    "total_product_money":"Tổng số tiền hàng hóa"
+    "total_product_money":"Tổng số tiền hàng hóa",
+    "product_code":"Mã Hàng Hóa",
+    "product_name":"Tên Hàng Hóa"
 }

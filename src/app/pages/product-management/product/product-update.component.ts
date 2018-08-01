@@ -64,7 +64,7 @@ export class ProductUpdateModalComponent implements OnInit {
     }
 
     async getAllProducts() {
-        const response = await this.productCategoriesService.getAll();
+        const response = await this.productService.getAll();
         this.allProducts = response.data;
     }
 

@@ -25,6 +25,7 @@ export class ProductPauselModalComponent implements OnInit {
     }
     async onClickPauseBtn(){
         try{
+            console.log(this.model);
             await this.productService.changeActiveStatus(this.model.id, false);
             this.helperService.showSuccessToast('success', 'pause_product_successfully');
             this.activeModal.close();

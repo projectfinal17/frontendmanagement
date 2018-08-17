@@ -78,8 +78,8 @@
                     <label>{{'role' | translate }}
                         <i class="star">*</i>
                     </label>
-                    <select class="form-control" [(ngModel)]="selectedRole" name="roleName" #roleName="ngModel">
-                        <option [ngValue]="role" *ngFor="let role of allRoles | sort:'index' ">{{ helperService.toLowercase(role.name) | translate}}</option>
+                    <select class="form-control" [(ngModel)]="model.roleName" name="roleName" #roleName="ngModel">
+                        <option [ngValue]="role.name" *ngFor="let role of allRoles | sort:'index' ">{{ helperService.toLowercase(role.name) | translate}}</option>
                     </select>
                 </div>
             </div>

@@ -4,11 +4,35 @@
   </nb-card-header>
   <nb-card-body>
     <div>
-        <div class="row">
-            <div class="col-sm-12">
-                <img class="image" style="max-width: 100%" src="assets/images/store_plant.jpg">
-            </div>
+      <!-- <div class="row">
+        <div class="col-sm-6 form-group">
+          <div class="input-group">
+            <input class="form-control" required placeholder="{{ 'day_month_year' | translate }}" name="fromDate" [(ngModel)]="selectedFromDate"
+              ngbDatepicker #fromDate="ngModel" #fromDatePicker="ngbDatepicker">
+            <span class="input-group-btn">
+              <button class="btn btn-primary" (click)="fromDatePicker.toggle()" type="button">
+                <i class="fa fa-calendar" aria-hidden="true"></i>
+              </button>
+            </span>
           </div>
+        </div>
+        <div class="col-sm-6">
+          <button  type="submit" class="btn btn-primary" (click)="onClickInCome()">Chọn</button>
+        </div>
+      </div> -->
+      <div class="row">
+        <div class="col-sm-12">
+          <p>Tổng tiền của tháng này: {{ model.amount }} đồng</p>
+        </div>
+
+      </div>
+
+
+      <div class="row">
+        <div class="col-sm-12">
+          <img class="image" style="max-width: 100%" src="assets/images/store_plant.jpg">
+        </div>
+      </div>
     </div>
   </nb-card-body>
 </nb-card>

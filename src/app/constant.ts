@@ -9,8 +9,7 @@ export const CONSTANT = {
     CURRENT_ROLE : 'current_role',
     ROLES: {
         OWNER: "OWNER",
-        MANAGER: "MANAGER",
-        SALESMAN: "SALESMAN", 
+        USER: "USER", 
     },
     EMAIL_PARTERN: "^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$",
 

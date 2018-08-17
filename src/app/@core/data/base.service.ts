@@ -37,6 +37,7 @@ export abstract class BaseService {
 
       const response = await this.http.post(this.domain, model, options)
         .toPromise();
+        console.log(response);
       return response.json();
     } catch (error) {
       this.helperService.handleError(error);

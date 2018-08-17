@@ -26,7 +26,7 @@
           </div>
         </div>
         <div class="col-sm-6">
-          <button class="pull-right btn btn-primary" (click)="onClickAddBtn()">{{ 'add' | translate}}</button>
+          <!-- <button class="pull-right btn btn-primary" (click)="onClickAddBtn()">{{ 'add' | translate}}</button> -->
         </div>
       </div>
       <div class="row">
@@ -44,18 +44,17 @@
               <td *ngIf="helperService.isShowedColumn('totalMoney', showedColumnList)">{{ item.totalMoney }}</td>
               <td *ngIf="helperService.isShowedColumn('address', showedColumnList)">{{ item.address }}</td>
               <td *ngIf="helperService.isShowedColumn('userName', showedColumnList)">{{ item.fullName }}</td>
+              <td *ngIf="helperService.isShowedColumn('isDeleted', showedColumnList)">
+                <span *ngIf="item.isDeleted === true" class="text-danger"> {{'destroy' | translate}} </span>
+                <span *ngIf="item.isDeleted === false" class="text-primary"> {{'ordered' | translate}} </span>
+              </td>
+
               <td>
                 <button type="button" class="btn btn-sm btn-outline-secondary" placement="bottom" #p="ngbPopover" (document:click)="p.close()"
                   (click)="$event.stopPropagation()" [ngbPopover]="popContent">
                   <i class="fa fa-cog" aria-hidden="true"></i>
                 </button>
                 <ng-template #popContent>
-                  <!-- <div class="customize-action-button customize-edit-button" (click)="onClickEditBtn(item)">
-                    <i class="fa fa-pencil" aria-hidden="true"></i> {{'edit' | translate}}
-                  </div> -->
-                  <div class="customize-action-button customize-delete-button" (click)="onClickDeleteBtn(item)">
-                    <i class="fa fa-trash" aria-hidden="true"></i> {{'delete' | translate}}
-                  </div>
                   <div class="customize-action-button customize-edit-button" (click)="onClickDetailBtn(item)">
                     <i class="fa fa-eye" aria-hidden="true"></i> {{'detail' | translate}}
                   </div>

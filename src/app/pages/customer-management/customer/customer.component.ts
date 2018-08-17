@@ -91,7 +91,7 @@ export class CustomerComponent implements OnInit {
     modalRef.componentInstance.reload = () => {
       this.getList();
     };
-    this.translateService.get("delete_post").subscribe((res: string) => {
+    this.translateService.get("delete_user").subscribe((res: string) => {
       modalRef.componentInstance.title = res;
     });
     modalRef.componentInstance.deleteFunction = () => {

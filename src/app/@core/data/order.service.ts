@@ -10,4 +10,17 @@ export class OrderService extends BaseService {
     super(childHttp, childHelperService, 'Orders');  
   }
 
+  async GetIncome(date : string ): Promise<any> {
+    try {
+      let headers = this.childHelperService.getHeadersRequest();
+      let options = new RequestOptions({ headers: headers });
+      
+      const response = await this.childHttp.get(`${this.domain}/` + date,  options)
+        .toPromise();
+        console.log(response);
+      return response.json();
+    } catch (error) {
+      this.childHelperService.handleError(error);
+    }
+  }
 }

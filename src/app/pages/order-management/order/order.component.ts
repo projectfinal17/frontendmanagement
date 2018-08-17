@@ -30,6 +30,7 @@ export class OrderComponent implements OnInit {
     { name: 'totalMoney', translateKey: 'totalMoney', isShowed: true, sortable: false },
     { name: 'address', translateKey: 'address', isShowed: true, sortable: false },
     { name: 'userName', translateKey: 'user_name', isShowed: true, sortable: false },
+    { name: 'isDeleted', translateKey: 'isDeleted', isShowed: true, sortable: false },
   ];
 
   constructor(

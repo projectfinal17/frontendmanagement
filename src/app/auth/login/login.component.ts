@@ -29,8 +29,8 @@ export class LoginComponent {
   }
   async login() {
     try {
-      let data = await this.authService.login(this.user.email, this.user.password);
-      this.helperService.setLocalStorage(CONSTANT.ACCESS_TOKEN, data['access_token']);
+        let data = await this.authService.login(this.user.email, this.user.password);
+        this.helperService.setLocalStorage(CONSTANT.ACCESS_TOKEN, data['access_token']);
       // we need to calcalate token valid timestamp (on milisecons)
       let expiresIn = data['expires_in'] * 1000;
       let validTimeStamp = + new Date() + expiresIn;
@@ -38,9 +38,16 @@ export class LoginComponent {
       // get user profiles & role
       var userProfile = await this.usersService.getCurrentUser();
       this.helperService.setLocalStorage(CONSTANT.USER_PROFILE, userProfile);
-      this.helperService.setLocalStorage(CONSTANT.CURRENT_ROLE, userProfile.roleNames[0]);
-
-      this.router.navigateByUrl('pages');
+      // console.log(userProfile);
+      this.helperService.setLocalStorage(CONSTANT.CURRENT_ROLE, userProfile.roleNames[0]); 
+      if(userProfile.roleNames[0] == CONSTANT.ROLES.USER || userProfile.isActive  === false){
+        this.authService.logout();
+        this.toastrService.error("Tài khoản không có quyền đăng nhập", "error");
+      }
+      else{
+        this.router.navigateByUrl('pages');
+      }
+      // this.router.navigateByUrl('pages');
     } catch (error) {
       let title = '';
       let message = '';

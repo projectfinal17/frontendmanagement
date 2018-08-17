@@ -70,6 +70,7 @@ export class CustomerUpdateModalComponent implements OnInit {
                 let response = await this.userService.edit(this.model.id, this.model);
                 this.helperService.showEditSuccessToast();
             } else {
+                console.log(this.model);
                 let response = await this.userService.add(this.model);
                 this.helperService.showAddSuccessToast();
                 if (this.isKeepOpen) {
